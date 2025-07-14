@@ -4,7 +4,7 @@
     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="crudHibernatePU" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>com.ejsjose.entities.Product</class>
                 
@@ -20,7 +20,7 @@
             <property name="hibernate.use_sql_comments"  value="false" />
             <property name="hibernate.jdbc.wrap_result_sets" value="false" />
             <property name="hibernate.cache.use_query_cache" value="false" />
-            <property name="hibernate.hbm2ddl.auto"  value="update" />
+            <property name="hibernate.hbm2ddl.auto"  value="create-drop" />
         </properties>
     </persistence-unit>
 </persistence>

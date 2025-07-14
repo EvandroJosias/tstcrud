@@ -5,7 +5,6 @@ import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.type.StringType;
-// import org.hibernate.HibernateException;
 
 import java.sql.Types;
 
@@ -17,7 +16,7 @@ public class SQLiteDialect extends Dialect {
         registerColumnType(Types.TINYINT, "TINYINT");
         registerColumnType(Types.SMALLINT, "SMALLINT");
         registerColumnType(Types.INTEGER, "INTEGER");
-        registerColumnType(Types.BIGINT, "BIGINT");
+        registerColumnType(Types.BIGINT, "INTEGER");
         registerColumnType(Types.FLOAT, "FLOAT");
         registerColumnType(Types.DOUBLE, "DOUBLE");
         registerColumnType(Types.VARCHAR, "TEXT");
@@ -40,13 +39,18 @@ public class SQLiteDialect extends Dialect {
     }
 
     @Override
+    public boolean hasDataTypeInIdentityColumn() {
+        return false;
+    }
+
+    @Override
     public String getIdentitySelectString() {
         return "select last_insert_rowid()";
     }
 
     @Override
-    public boolean hasDataTypeInIdentityColumn() {
-        return false;
+    public String getIdentitySelectString(String table, String column, int type) {
+        return "select last_insert_rowid()";
     }
 
     @Override
@@ -95,27 +99,7 @@ public class SQLiteDialect extends Dialect {
     }
 
     @Override
-    public boolean hasAlterTable() {
-        return false;
-    }
-
-    @Override
     public boolean dropConstraints() {
-        return false;
-    }
-
-    @Override
-    public String getAddColumnString() {
-        return "add column";
-    }
-
-    @Override
-    public String getForUpdateString() {
-        return "";
-    }
-
-    @Override
-    public boolean supportsOuterJoinForUpdate() {
         return false;
     }
 
@@ -125,9 +109,9 @@ public class SQLiteDialect extends Dialect {
     }
 
     @Override
-    public String getAddForeignKeyConstraintString(
-        String constraintName, String[] foreignKey, String referencedTable, String[] primaryKey,
-        boolean referencesPrimaryKey) {
+    public String getAddForeignKeyConstraintString(String constraintName,
+                                                   String[] foreignKey, String referencedTable, String[] primaryKey,
+                                                   boolean referencesPrimaryKey) {
         throw new UnsupportedOperationException("No add foreign key syntax supported by SQLiteDialect");
     }
 

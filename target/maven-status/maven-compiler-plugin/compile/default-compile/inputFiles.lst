@@ -1,5 +1,5 @@
-D:\workspace\tstcrud\src\main\java\com\ejsjose\entities\Product.java
-D:\workspace\tstcrud\src\main\java\com\ejsjose\infra\HibernateUtil.java
-D:\workspace\tstcrud\src\main\java\com\ejsjose\infra\SQLiteDialect.java
-D:\workspace\tstcrud\src\main\java\com\ejsjose\Main.java
-D:\workspace\tstcrud\src\main\java\com\ejsjose\repositories\repoProduct.java
+/home/user/workspace/develop/tstcrud/src/main/java/com/ejsjose/entities/Product.java
+/home/user/workspace/develop/tstcrud/src/main/java/com/ejsjose/Main.java
+/home/user/workspace/develop/tstcrud/src/main/java/com/ejsjose/repositories/repoProduct.java
+/home/user/workspace/develop/tstcrud/src/main/java/com/ejsjose/infra/HibernateUtil.java
+/home/user/workspace/develop/tstcrud/src/main/java/com/ejsjose/infra/SQLiteDialect.java

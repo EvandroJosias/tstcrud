@@ -1,5 +1,5 @@
-com\ejsjose\infra\HibernateUtil.class
-com\ejsjose\infra\SQLiteDialect.class
-com\ejsjose\Main.class
-com\ejsjose\entities\Product.class
-com\ejsjose\repositories\repoProduct.class
+com/ejsjose/Main.class
+com/ejsjose/infra/HibernateUtil.class
+com/ejsjose/entities/Product.class
+com/ejsjose/infra/SQLiteDialect.class
+com/ejsjose/repositories/repoProduct.class

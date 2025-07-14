@@ -1,6 +1,6 @@
 package com.ejsjose.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 
 import lombok.Getter;
@@ -15,7 +15,7 @@ public class Product {
   
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private Integer id;
 
     private String name;
 
