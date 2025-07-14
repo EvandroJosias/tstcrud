@@ -35,12 +35,12 @@ public class SQLiteDialect extends Dialect {
 
     @Override
     public String getIdentityColumnString() {
-        return "INTEGER PRIMARY KEY AUTOINCREMENT";
+        return "AUTOINCREMENT";
     }
 
     @Override
     public boolean hasDataTypeInIdentityColumn() {
-        return false;
+        return true;
     }
 
     @Override
@@ -51,6 +51,13 @@ public class SQLiteDialect extends Dialect {
     @Override
     public String getIdentitySelectString(String table, String column, int type) {
         return "select last_insert_rowid()";
+    }
+
+    // Esta é a chave - sobrescrever este método para retornar uma string vazia
+    // impede que o Hibernate adicione "primary key (id)" no final da criação da tabela
+    @Override
+    public String getTableTypeString() {
+        return "";
     }
 
     @Override

@@ -17,7 +17,7 @@ public class repoProduct {
         em.close();
     }
 
-    public Product buscarPorId(Long id) {
+    public Product buscarPorId(Integer id) {
         EntityManager em = HibernateUtil.getEntityManager();
         Product produto = em.find(Product.class, id);
         em.close();
@@ -26,9 +26,24 @@ public class repoProduct {
 
     public List<Product> listarTodos() {
         EntityManager em = HibernateUtil.getEntityManager();
-        List<Product> produtos = em.createQuery("from Produto", Product.class).getResultList();
+        List<Product> produtos = em.createQuery("from Product", Product.class).getResultList();
         em.close();
         return produtos;
+    }
+
+    public Product buscarPrimeiro() {
+        EntityManager em = HibernateUtil.getEntityManager();
+        try {
+            Product produto = em.createQuery("from Product order by id asc", Product.class)
+                    .setMaxResults(1)
+                    .getSingleResult();
+            return produto;
+        } catch (Exception e) {
+            System.out.println("Nenhum produto encontrado na tabela!");
+            return null;
+        } finally {
+            em.close();
+        }
     }
 
     public void atualizar(Product produto) {
@@ -39,14 +54,17 @@ public class repoProduct {
         em.close();
     }
 
-    public void remover(Long id) {
+    public void remover(Integer id) {
         EntityManager em = HibernateUtil.getEntityManager();
+        em.getTransaction().begin();
         Product produto = em.find(Product.class, id);
         if (produto != null) {
-            em.getTransaction().begin();
             em.remove(produto);
-            em.getTransaction().commit();
+            System.out.println("Produto ID " + id + " removido com sucesso!");
+        } else {
+            System.out.println("Produto ID " + id + " não encontrado!");
         }
+        em.getTransaction().commit();
         em.close();
     }    
 
