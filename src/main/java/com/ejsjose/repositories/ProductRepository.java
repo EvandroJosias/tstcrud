@@ -4,7 +4,7 @@ import com.ejsjose.entities.Product;
 import com.ejsjose.infra.HibernateUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
+// import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;

@@ -11,7 +11,7 @@ import com.ejsjose.infra.HibernateUtil;
 import java.util.Scanner;
 
 /**
- * Exemplo de uso do serviço JSON
+ * Exemplo de uso do serviço JSON1
  * Demonstra entrada e saída em formato JSON
  */
 public class MainJsonExample {
